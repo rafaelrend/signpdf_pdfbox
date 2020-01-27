@@ -78,43 +78,21 @@ public class FormTeste extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try{
-            
-            /*
-        java.security.KeyStore ks  = KeyStore.getInstance(   "JKS");
-        String filePathToStore = "C:\\Users\\rafael\\rend_key.keystore";
-        String keystorePasswordCharArray = "whatever00";
-        String passwordForKeyCharArray = "whatever00";
-        
-        InputStream readStream = new FileInputStream(filePathToStore);
-        ks.load(readStream, keystorePasswordCharArray.toCharArray());
-        //Key key = ks.getKey("rafaelrend", passwordForKeyCharArray.toCharArray() );
-        CreateSignature obj = new CreateSignature(ks, "whatever00".toCharArray());
-        //java.io.File inFile = new java.io.File("C:\\Users\\rafael\\contrato.pdf");
-        java.io.File inFile = new File("C:\\Users\\rafael\\contrato.pdf");
-        java.io.File inFile2 = new File("C:\\Users\\rafael\\contrato_signed.pdf");
-        //InputStream inFile = new FileInputStream("C:\\Users\\rafael\\contrato.pdf");
-        //obj.sign(inFile);
-        obj.signDetached(inFile, inFile2);
-
-*/
-            
+          
         java.security.KeyStore ks  = KeyStore.getInstance("JKS");
-        String filePathToStore = "F:\\Unidade G\\Sistemas\\Projetos Web\\Paulao\\Agro\\Interacoes\\certificado\\agro.jks";
+        String filePathToStore = "/home/rafael/your_key_file.jks";
         String keystorePasswordCharArray = "123456";
         String passwordForKeyCharArray = "1234";
         String alias = "07d1e09a-dac5-43c9-9a5f-ca30d208ccf0";
-        
-        
-        
+		
         InputStream readStream = new FileInputStream(filePathToStore);
         ks.load(readStream, keystorePasswordCharArray.toCharArray());
         
         ks.getKey(alias, passwordForKeyCharArray.toCharArray() );
         CreateSignature obj = new CreateSignature(ks, passwordForKeyCharArray.toCharArray());
-        //java.io.File inFile = new java.io.File("C:\\Users\\rafael\\contrato.pdf");
-        java.io.File inFile = new File("F:\\Unidade G\\Sistemas\\Projetos Web\\Paulao\\Agro\\Interacoes\\certificado\\teste.pdf");
-        java.io.File inFile2 = new File("F:\\Unidade G\\Sistemas\\Projetos Web\\Paulao\\Agro\\Interacoes\\certificado\\teste_signed.pdf");
-        //InputStream inFile = new FileInputStream("C:\\Users\\rafael\\contrato.pdf");
+		
+        java.io.File inFile = new File("/home/rafael/your_unsigned_file.pdf");
+        java.io.File inFile2 = new File("/home/rafael/your_signed_file");
         //obj.sign(inFile);
         obj.signDetached(inFile, inFile2);
         
